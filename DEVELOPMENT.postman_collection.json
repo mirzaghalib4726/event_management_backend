@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "de0d0f7d-8e06-4cd5-811a-d11542256e83",
+		"name": "DEVELOPMENT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42784293",
+		"_collection_link": "https://www.postman.com/test22-0142/workspace/event-management/collection/42784293-de0d0f7d-8e06-4cd5-811a-d11542256e83?action=share&source=collection_link&creator=42784293"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"type\": \"organizer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER\n}}auth/register",
+							"host": [
+								"{{SERVER\n}}auth"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER\n}}auth/login",
+							"host": [
+								"{{SERVER\n}}auth"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"access_token\": \"{{vault:json-web-token}}\",\r\n    \"refresh_token\": \"{{vault:json-web-token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER\n}}auth/refresh-token",
+							"host": [
+								"{{SERVER\n}}auth"
+							],
+							"path": [
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER\n}}",
+					"host": [
+						"{{SERVER\n}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
